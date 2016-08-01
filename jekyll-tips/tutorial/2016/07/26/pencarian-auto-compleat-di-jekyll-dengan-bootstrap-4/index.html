@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Pencarian Auto Compleat Di Jekyll Dengan Bootstrap 4</title>
+  <meta name="description" content="Dengan adanya Jekyll Search Auto Complete ini dapat digunakan untuk mempermudah user dalam pencarian post atau page di website dan blog kita.">
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css">
+  <link rel="canonical" href="https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/26/pencarian-auto-compleat-di-jekyll-dengan-bootstrap-4/">
+	<link rel="alternate" type="application/rss+xml" title="Ikhwanudin" href="https://ikhwanudin.github.io/feed.xml">
+</head>
+  <body>      
+    <div id="navbar" class="col-md-12 col-lg-3 bg-inverse pos-f-t">
+      
+
+<div class="container" style="text-align:center; padding-top:20px;">
+	<img class="avatar img-circle img-fluid m-x-auto d-block" src="/assets/images/about.jpg" alt="avatar">
+	<a class="text-success" href="/"><h3>Ikhwanudin</h3></a>
+	<span class="text-muted">"Sesuatu yang besar berawal dari langkah kecil yang dilakukan, bukan hanya di pikirkan."</span> <br>
+	<div  style="margin-top:15px;" class="btn-group" role="group" aria-label="Basic example">
+	  <a href="/about" type="button" class="btn btn-outline-success">About</a>
+	  <a href="/" type="button" class="btn btn-outline-success">Blog</a>
+	  <a href="/archive" type="button" class="btn btn-outline-success">Archives</a>
+	</div>
+</div>
+      
+    </div>
+    <div id="content" class="col-md-12 col-lg-9 push-lg-3">
+      <div class="content">
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Pencarian Auto Compleat Di Jekyll Dengan Bootstrap 4</h1>
+    <p class="post-meta"><i class="fa fa-calendar">&nbsp</i><time datetime="2016-07-26T23:47:33+07:00" itemprop="datePublished">Jul 26, 2016</time> • <a class="disqus-comments-link" title="View comments" href="https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/26/pencarian-auto-compleat-di-jekyll-dengan-bootstrap-4/#disqus_thread">Comments</a></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p class="lead">Dengan adanya Jekyll Search Auto Complete ini dapat digunakan untuk mempermudah user dalam pencarian post atau page di website dan blog kita.</p>
+
+<h2 id="table-of-contents">Table Of Contents</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#table-of-contents" id="markdown-toc-table-of-contents">Table Of Contents</a></li>
+  <li><a href="#contoh" id="markdown-toc-contoh">Contoh</a></li>
+  <li><a href="#bahan" id="markdown-toc-bahan">Bahan</a></li>
+  <li><a href="#cara-membuat" id="markdown-toc-cara-membuat">Cara Membuat</a>    <ul>
+      <li><a href="#button-dropdown" id="markdown-toc-button-dropdown">Button Dropdown</a></li>
+      <li><a href="#input" id="markdown-toc-input">Input</a></li>
+      <li><a href="#custom-css" id="markdown-toc-custom-css">Custom css</a></li>
+      <li><a href="#searchjson" id="markdown-toc-searchjson">search.json</a></li>
+      <li><a href="#javascript" id="markdown-toc-javascript">javascript</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="contoh">Contoh</h2>
+
+<style type="text/css">
+  #hasil{
+    width: 100%;
+  }
+  #hasil.dropdown-menu{
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 5px 10px rgba(0, 0, 0, 0.05);
+    padding: unset;
+    border: unset;
+  }
+</style>
+
+<div class="col-md-8">
+  <div class="dropdown">
+    <input type="text" id="input" class="form-control dropdown-toggle" data-toggle="dropdown" placeholder="Search..." />
+    <div id="hasil" class="dropdown-menu"></div>
+  </div>
+</div>
+
+<h2 id="bahan">Bahan</h2>
+
+<ol>
+  <li>Bootstrap.min.css</li>
+  <li>Bootstrap.min.js</li>
+  <li>Jquery-2.2.2.min.js</li>
+  <li><a href="/source/jekyll-search.min.js">Jekyll-search.min.js</a></li>
+</ol>
+
+<h2 id="cara-membuat">Cara Membuat</h2>
+
+<p>Hal pertama yang harus di lakukan yaitu memanggil semua source:</p>
+
+<ul>
+  <li>bootstrap.min.css diletakan di dalam <code class="highlighter-rouge">head</code>,</li>
+  <li>jquery-2.2.2.min.js, bootstrap.min.js, dan jekyll-search.min.js di letakan sebelum penutup tag <code class="highlighter-rouge">&lt;/body&gt;</code> secara urut.</li>
+</ul>
+
+<h4 id="button-dropdown">Button Dropdown</h4>
+
+<p>Buat input dengan <code class="highlighter-rouge">type="text"</code> yang di adaptasi dari <strong>Bootstrap</strong> button dropdown seperti di bawah ini:</p>
+
+<ul>
+  <li>
+    <div class="dropdown"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Button Dropdown</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2"><button class="dropdown-item" type="button">Hasil Pencarian</button></div></div>
+  </li>
+</ul>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- Button 1 --&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-secondary dropdown-toggle"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"dropdownMenu2"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+      Button Dropdown
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="c">&lt;!-- Button 2 --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">aria-labelledby=</span><span class="s">"dropdownMenu2"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"dropdown-item"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Hasil Pencarian<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<h4 id="input">Input</h4>
+
+<ol>
+  <li>Ganti <code class="highlighter-rouge">&lt;button&gt;</code>1 dengan <code class="highlighter-rouge">input</code> <code class="highlighter-rouge">type="text"</code>
+    <ul>
+      <li>selanjutnya tambahkan class <code class="highlighter-rouge">form-control</code> dan <code class="highlighter-rouge">dropdown-toggle</code>,</li>
+      <li>tambahkan atribut <code class="highlighter-rouge">data-toggle="dropdown"</code> dan <code class="highlighter-rouge">id="hasil"</code>.</li>
+    </ul>
+  </li>
+  <li>Ganti <code class="highlighter-rouge">&lt;button&gt;</code>2 dengan tag <code class="highlighter-rouge">&lt;div&gt;</code>
+    <ul>
+      <li>tambahkan <code class="highlighter-rouge">id="hasil"</code> dan <code class="highlighter-rouge">class="dropdown-menu"</code> seperti code di bawah ini:.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"input"</span> <span class="na">class=</span><span class="s">"form-control dropdown-toggle"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">placeholder=</span><span class="s">"Search..."</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"hasil"</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</div>
+
+<h4 id="custom-css">Custom css</h4>
+
+<p>Tambahkan sedikit css untuk menghilangkan tampilan yang kurang enak di lihat karena pengaruh <code class="highlighter-rouge">class="dropdown-menu"</code> di bagian bawah <code class="highlighter-rouge">&lt;input&gt;</code>. Untuk mengetahui perubahan tampilan yang terjadi, lihatlah perbedaan tampilan sebelum css di tambahkan dan perbedaan setelah css di tambahkan.</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nf">#hasil</span><span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nf">#hasil</span><span class="nc">.dropdown-menu</span><span class="p">{</span>
+  <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.05</span><span class="p">),</span> <span class="m">0</span> <span class="m">5px</span> <span class="m">10px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.05</span><span class="p">);</span>
+  <span class="nl">padding</span><span class="p">:</span> <span class="n">unset</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="n">unset</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="searchjson">search.json</h4>
+
+<p>Buatlah file bernama <kbd>search.json</kbd> atau dengan nama sesuai keinginan anda, untuk di generate oleh <strong>Jekyll</strong>, yang akan meloop seluruh post / page yang ada. Hasil generate file inilah yang akan di tampilkan di bagian <code class="highlighter-rouge">id="hasil"</code> ketika user menginputkan value jika ada yang sesuai dengan hasil generate.</p>
+
+<ul>
+  <li>Letakan file ini di direktori <code class="highlighter-rouge">&lt;source&gt;/search.json</code> atau di direktori kesukaan anda.</li>
+  <li>File ini hanya akan megenerate title dan url dari nama post/page.</li>
+  <li>perlu di ingat tambahkan triple dash <code class="highlighter-rouge">---</code> di bagian paling atas file supaya <strong>Jekyll</strong> megenerate file <kbd>search.json</kbd>.</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="w">
+</span><span class="err">---</span><span class="w">
+
+</span><span class="err">---</span><span class="w">
+
+</span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">assign</span><span class="w"> </span><span class="err">sorted_posts</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">site.posts</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">sort:</span><span class="w"> </span><span class="err">'title'</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">sorted_posts</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">post.title</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"title"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">post.title</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">jsonify</span><span class="w"> </span><span class="p">}},</span><span class="w">
+            </span><span class="s2">"url"</span><span class="w">   </span><span class="err">:</span><span class="w"> </span><span class="s2">"{{ site.baseurl }}{{ page.url }}"</span><span class="w">
+        </span><span class="err">}</span><span class="w"> </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">forloop.last</span><span class="w"> </span><span class="err">%</span><span class="p">},{</span><span class="err">%</span><span class="w"> </span><span class="err">endunless</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">endif</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">endfor</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+</div>
+
+<h4 id="javascript">javascript</h4>
+
+<p>Letakan code di bawah ini sebelum tag <code class="highlighter-rouge">&lt;body&gt;</code>. Code ini berfungsi untuk memanggil data dari search.json, untuk di tampilkan di dalam tag yang memiliki <code class="highlighter-rouge">id="hasil"</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<span class="nx">SimpleJekyllSearch</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="na">searchInput</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'input'</span><span class="p">),</span>
+  <span class="na">resultsContainer</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'hasil'</span><span class="p">),</span>
+  <span class="na">searchResultTemplate</span><span class="p">:</span> <span class="s1">'&lt;a class="dropdown-item" href="{url}"&gt;{title}&lt;/a&gt;'</span><span class="p">,</span>
+  <span class="na">noResultsText</span><span class="p">:</span> <span class="s1">'&lt;div class="dropdown-item no-results"&gt;Maaf, tidak ada hasil yang sesuai dengan kata kunci.&lt;/div&gt;'</span><span class="p">,</span>
+  <span class="na">json</span><span class="p">:</span> <span class="s1">'{{ site.baseurl }}/search.json'</span>
+<span class="p">})</span>
+
+</code></pre>
+</div>
+
+  </div>
+  <div><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/26/pencarian-auto-compleat-di-jekyll-dengan-bootstrap-4/" data-text="Pencarian Auto Compleat Di Jekyll Dengan Bootstrap 4 by @ikhwanudin0_0 -" data-dnt="true">Twitter</a> - <div class="fb-like" data-href="https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/26/pencarian-auto-compleat-di-jekyll-dengan-bootstrap-4/" data-layout="button" data-action="like" data-show-faces="false" data-colorscheme="light" data-kid-directed-site="false" data-share="false"></div> - <div class="g-plus" data-action="share" data-href="https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/26/pencarian-auto-compleat-di-jekyll-dengan-bootstrap-4/" data-annotation="none" data-width="" data-size="medium"></div></div>
+  
+  
+  	<span class="categories"><i class="fa fa-tags">&nbsp</i>posted in jekyll-tips, tutorial</span>
+  
+
+</article>
+<div id="bottom-nav" class="row">
+  
+  <div class="col-xs-6 col-md-6">
+    <a href="/2016/07/26/hello-world/" class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Hello World"><i class="fa fa-chevron-left">&nbsp</i>Previous</a>
+  </div>
+  
+  
+  <div class="col-xs-6 col-md-6">
+    <a href="/jekyll-tips/tutorial/2016/07/28/30-detik-membuat-website-atau-blog-dengan-jekyll-3/" class="btn btn-success pull-xs-right" data-toggle="tooltip" data-placement="left" title="30 Detik Membuat Website Atau Blog Dengan Jekyll 3">Next <i class="fa fa-chevron-right"></i></a>
+  </div>
+  
+</div>
+<div id="disqus_thread"></div> <script type="text/javascript"> var disqus_shortname = 'nurikhwanudin'; var disqus_url = 'https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/26/pencarian-auto-compleat-di-jekyll-dengan-bootstrap-4/'; var disqus_identifier = 'https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/26/pencarian-auto-compleat-di-jekyll-dengan-bootstrap-4/'; var disqus_title = 'Pencarian Auto Compleat Di Jekyll Dengan Bootstrap 4'; (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//nurikhwanudin.disqus.com/embed.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div>
+      <div class="footer"><footer>
+	<div class="row">
+		<div class="col-md-6">
+			Ikhwanudin
+			<p class="text-muted">Sesuatu yang besar berawal dari langkah kecil yang dilakukan, bukan hanya di pikirkan.</p>	
+		</div>
+		<div class="col-md-6">
+			<span class="text-muted pull-md-right">Copyright 2016</span>
+		</div>
+	</div>
+</footer></div>
+    </div>
+  <script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/tether.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+  
+  <script src="/source/jekyll-search.min.js"></script>
+  <script type="text/javascript">
+    SimpleJekyllSearch.init({
+      searchInput: document.getElementById('input'),
+      resultsContainer: document.getElementById('hasil'),
+      searchResultTemplate: '<a class="dropdown-item" href="{url}">{title}</a>',
+      noResultsText: '<div class="dropdown-item no-results">Maaf, tidak ada hasil yang sesuai dengan kata kunci.</div>',
+      json: '/source/search.json'
+    })
+  </script> 
+  
+  
+    <script type="text/javascript">
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+    <script type="text/javascript"> (function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/platform.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })(); </script>    
+  
+  </body>
+</html>

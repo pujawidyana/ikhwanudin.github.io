@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ikhwanudin</title>
+    <description>Sesuatu yang besar berawal dari langkah kecil yang dilakukan, bukan hanya di pikirkan.</description>
+    <link>https://ikhwanudin.github.io/</link>
+    <atom:link href="https://ikhwanudin.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 31 Jul 2016 17:07:43 +0700</pubDate>
+    <lastBuildDate>Sun, 31 Jul 2016 17:07:43 +0700</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Membuat Post dan Page di Jekyll</title>
+        <description>&lt;p class=&quot;lead&quot;&gt;kali ini saya akan mengeshare sedikit tips cara membuat post dan page di jekyll dengan sangat mudah dari cara biasa hingga luar biasa.&lt;/p&gt;
+
+&lt;h2 id=&quot;table-of-contents&quot;&gt;Table Of Contents&lt;/h2&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#table-of-contents&quot; id=&quot;markdown-toc-table-of-contents&quot;&gt;Table Of Contents&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#struktur-folder&quot; id=&quot;markdown-toc-struktur-folder&quot;&gt;Struktur Folder&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cara-biasa--default&quot; id=&quot;markdown-toc-cara-biasa--default&quot;&gt;Cara Biasa / default&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#membuat-post&quot; id=&quot;markdown-toc-membuat-post&quot;&gt;Membuat Post&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#membuat-page&quot; id=&quot;markdown-toc-membuat-page&quot;&gt;Membuat Page&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cara-cepat-dan-mudah&quot; id=&quot;markdown-toc-cara-cepat-dan-mudah&quot;&gt;Cara Cepat dan Mudah&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#instalasi-octopress&quot; id=&quot;markdown-toc-instalasi-octopress&quot;&gt;Instalasi Octopress&lt;/a&gt;        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#cara-yang-di-rekomendasikan-oleh-para-ahli&quot; id=&quot;markdown-toc-cara-yang-di-rekomendasikan-oleh-para-ahli&quot;&gt;Cara yang di rekomendasikan oleh para ahli.&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#cara-ke-2&quot; id=&quot;markdown-toc-cara-ke-2&quot;&gt;cara ke 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#membuat-post-1&quot; id=&quot;markdown-toc-membuat-post-1&quot;&gt;Membuat Post&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#membuat-page-1&quot; id=&quot;markdown-toc-membuat-page-1&quot;&gt;Membuat Page&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;struktur-folder&quot;&gt;Struktur Folder&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&amp;gt;
+ ├─── _includes
+ ├─── _layouts
+ |    ├── post.html
+ |    └── page.html
+ ├─── _post
+ |    └── 2016-07-30-nama-post.markdown
+ ├─── _sass
+ ├─── _site
+ ├─── _templates
+ ├─── about
+ |    └── index.html 
+ ├─── _config.yml
+ ├─── about.html
+ └─── index.html
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;cara-biasa--default&quot;&gt;Cara Biasa / default&lt;/h2&gt;
+
+&lt;p&gt;Cara ini di lakukan tanpa tambahan plugin apapun hanya menggunakan cara yang di berikan oleh si pembuat jekyll.&lt;/p&gt;
+
+&lt;h3 id=&quot;membuat-post&quot;&gt;Membuat Post&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Untuk membuat post masuklah ke direktori (folder) &lt;code class=&quot;highlighter-rouge&quot;&gt;_post&lt;/code&gt;, direktori di mana &lt;strong&gt;post&lt;/strong&gt; di lahirkan. Kita hanya bisa membuat post di dalam folder ini, &lt;em&gt;kecuali di rubah setinganya di _config.yml&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;selanjutnya buatlah file dengan format nama: &lt;code class=&quot;highlighter-rouge&quot;&gt;[tahun]-[bulan]-[tanggal]-[nama-post].[ekstensi]&lt;/code&gt; . eg: &lt;code class=&quot;highlighter-rouge&quot;&gt;2016-07-30-nama-post.markdown&lt;/code&gt; nama-post harus &lt;em&gt;lowercase&lt;/em&gt; atau huruf kecil semua, jenis file untuk post yang bisa di gunakan &lt;em&gt;markdown, html, textile&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;open file di text editor kesukaan anda. tambahkan yaml front mater di bagian paling atas. Untuk format date / tanggal &lt;code class=&quot;highlighter-rouge&quot;&gt;tahun-bulan-tanggalTJam:menit:detik+(zona waktu ex: gmt+07 / +07:00 untuk Jakarta Indonesia)&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Isi post anda di letakan setelah front mater menggunakan markdown / html / textile.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Nama&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Post&quot;&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2016-07-30T17:28:34+07:00&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+
+Isi post di sini
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;membuat-page&quot;&gt;Membuat Page&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ada dua jenis page yang bisa di gunakan, semisal di sini saya akan membuat page about:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;jenis pertama&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;source&amp;gt;/about.html&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;cara mengakses secara offline  &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1:4000/about.html&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;jenis yang kedua&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;source&amp;gt;/about/index.html&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;cara mengakses secara offline &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1:4000/about/index.html&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Untuk membuat page &lt;strong&gt;jenis pertama&lt;/strong&gt; yaitu buat file di &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;source&amp;gt;&lt;/code&gt; direktori, dengan nama about.html / about.md, page ini bisa di akses secara default di &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1:4000/about.html&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote class=&quot;blockquote&quot;&gt;Namun semisal kita ingin mengganti page jenis pertama ini menjadi jenis yang kedua tinggal menambahkan permalink di front mater: &lt;code&gt;permalink: /about/&lt;/code&gt; &lt;/blockquote&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;page&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;About&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/about/&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#tambahkan jika ingin mengganti page menjadi jenis ke 2&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+
+isi page
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;Membuat page &lt;strong&gt;jenis ke dua&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Cara mengakses page secara default &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1:4000/about/index.html&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Buatlah folder terlebih dahulu dengan nama sesuai page yang ingin di buat di dalam &lt;a href=&quot;#struktur-folder&quot;&gt;direktori &lt;source /&gt; &lt;/a&gt;,&lt;/li&gt;
+      &lt;li&gt;Selanjutnya buat file dengan nama &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;index.md&lt;/code&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;page&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;About&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+
+Isi page
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;cara-cepat-dan-mudah&quot;&gt;Cara Cepat dan Mudah&lt;/h2&gt;
+&lt;p&gt;Cara ini sangatlah mudah karena menggunakan plugin &lt;a href=&quot;https://github.com/octopress/octopress&quot;&gt;octopress&lt;/a&gt;, sehingga menghemat waktu tenaga dan pikiran. Cara ini bisa di gunakan oleh Windows users.&lt;/p&gt;
+
+&lt;h3 id=&quot;instalasi-octopress&quot;&gt;Instalasi Octopress&lt;/h3&gt;
+
+&lt;h4 id=&quot;cara-yang-di-rekomendasikan-oleh-para-ahli&quot;&gt;Cara yang di rekomendasikan oleh para ahli.&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Buka terminal atau cmd.&lt;/li&gt;
+  &lt;li&gt;Masuk ke direktori tujuan (letak blog/website) eg: &lt;code class=&quot;highlighter-rouge&quot;&gt;$:~/Desktop/mySite/&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Ketikan perintah &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle init&lt;/code&gt; ~&amp;gt; enter, perintah ini akan menghasilkan &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Tambahkan &lt;code class=&quot;highlighter-rouge&quot;&gt;gem &#39;octopress&#39;&lt;/code&gt; seperti di bawah ini di dalam Gemfile.&lt;/li&gt;
+  &lt;li&gt;ketikan &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle install&lt;/code&gt; -&amp;gt; enter.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:jekyll_plugins&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;octopress&#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;cara-ke-2&quot;&gt;cara ke 2&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Buka terminal atau cmd.&lt;/li&gt;
+  &lt;li&gt;Ketikan perintah &lt;code class=&quot;highlighter-rouge&quot;&gt;gem install octopress&lt;/code&gt; untuk menginstal.&lt;/li&gt;
+  &lt;li&gt;Hanya menunggu beberapa detik octopress sudah berhasil di install, yeah.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;membuat-post-1&quot;&gt;Membuat Post&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Buka terminal dengan &lt;kbd&gt;ctrl + alt + t&lt;/kbd&gt;(atau cara lainya), atau cmd untuk Windows users dengan &lt;kbd&gt;win + r&lt;/kbd&gt; ketikan cmd -&amp;gt; enter (atau dengan cara lainya).&lt;/li&gt;
+  &lt;li&gt;Masuk ke direktori tujuan (letak blog/website) eg: &lt;code class=&quot;highlighter-rouge&quot;&gt;$:~/Desktop/mySite/&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;ketikan perintah &lt;code class=&quot;highlighter-rouge&quot;&gt;octopress new post &quot;Nama Post&quot;&lt;/code&gt;, dengan perintah tersebut post sudah berhasil di buat di folder &lt;code class=&quot;highlighter-rouge&quot;&gt;_post&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Nama&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Post&quot;&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2016-07-30T17:28:34+07:00&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+
+Isi post di sini
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;membuat-page-1&quot;&gt;Membuat Page&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Buka terminal dengan &lt;kbd&gt;ctrl + alt + t&lt;/kbd&gt;(atau cara lainya), atau cmd untuk Windows users dengan &lt;kbd&gt;win + r&lt;/kbd&gt; ketikan cmd -&amp;gt; enter (atau dengan cara lainya).&lt;/li&gt;
+  &lt;li&gt;Masuk ke direktori tujuan (letak blog/website) eg: &lt;code class=&quot;highlighter-rouge&quot;&gt;$:~/Desktop/mySite/&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Membuat page
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Page jenis 1&lt;/strong&gt; Ketikan perintah &lt;code class=&quot;highlighter-rouge&quot;&gt;octopress new page &quot;Nama-page&quot;&lt;/code&gt; ~&amp;gt; enter. eg: &lt;code class=&quot;highlighter-rouge&quot;&gt;octopress new page &quot;About&quot;&lt;/code&gt;. Dengan perintah ini akan menghasilkan file about.html, cara mengaksesnya &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1:4000/about.html&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Page jenis 2&lt;/strong&gt; Ketikan perintah &lt;code class=&quot;highlighter-rouge&quot;&gt;octopress new page &quot;Nama-page/index.html&quot;&lt;/code&gt; (index.md) ~&amp;gt; enter. eg: &lt;code class=&quot;highlighter-rouge&quot;&gt;octopress new page &quot;About/index.html&quot;&lt;/code&gt;. Dengan perintah ini akan menghasilkan file about.html, cara mengaksesnya &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1:4000/about/index.html&lt;/code&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Untuk mengganti page jenis 1 menjadi jenis ke 2 tambahkan permalink di front mater &lt;code class=&quot;highlighter-rouge&quot;&gt;permalink: /about/&lt;/code&gt;, dan cara mengaksesnya secara default yaitu &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1:4000/about/index.html&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;page&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;About&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+
+Isi page
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Sat, 30 Jul 2016 17:28:34 +0700</pubDate>
+        <link>https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/30/membuat-post-dan-page-di-jekyll/</link>
+        <guid isPermaLink="true">https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/30/membuat-post-dan-page-di-jekyll/</guid>
+        
+        
+        <category>jekyll-tips</category>
+        
+        <category>tutorial</category>
+        
+      </item>
+    
+      <item>
+        <title>30 Detik Membuat Website Atau Blog Dengan Jekyll 3</title>
+        <description>&lt;p class=&quot;lead&quot;&gt;Tutorial ini bisa di lakukan di Os Ubuntu maupun Windows. dengan catatan sudah terinstall Jekyll.&lt;/p&gt;
+
+&lt;h2 id=&quot;table-of-contents&quot;&gt;Table Of Contents&lt;/h2&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#table-of-contents&quot; id=&quot;markdown-toc-table-of-contents&quot;&gt;Table Of Contents&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#instalasi&quot; id=&quot;markdown-toc-instalasi&quot;&gt;Instalasi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#inti-cerita&quot; id=&quot;markdown-toc-inti-cerita&quot;&gt;Inti Cerita&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;instalasi&quot;&gt;Instalasi&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Untuk instalasi di &lt;strong&gt;Ubuntu&lt;/strong&gt; dapat mengunjungi &lt;a href=&quot;https://ikhwanudin.github.io&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Untuk Instalasi di &lt;strong&gt;Windows&lt;/strong&gt; dapat mengunjugi &lt;a href=&quot;https://ikhwanudin.github.io&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;inti-cerita&quot;&gt;Inti Cerita&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Buka Terminal dengan &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;t&lt;/kbd&gt; atau Cmd dengan &lt;kbd&gt;Win&lt;/kbd&gt;+&lt;kbd&gt;r&lt;/kbd&gt; dan ketikan cmd langsung enter.&lt;/li&gt;
+  &lt;li&gt;Tentukan direktori tujuan yang ingin anda gunakan untuk tempat pembuatan blog dengan Jekyll. Semisal di sini saya menggunakan direktori &lt;code class=&quot;highlighter-rouge&quot;&gt;Desktop/&lt;/code&gt; untuk tempat pembuatan blog / website.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Ubuntu&lt;/strong&gt; :
+        &lt;ul&gt;
+          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:~$&lt;/code&gt; &lt;kbd&gt;cd Desktop/&lt;/kbd&gt; enter;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Windows&lt;/strong&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;C:/Windows/&lt;/code&gt; &lt;kbd&gt;cd C:&lt;/kbd&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;C:&lt;/code&gt; &lt;kbd&gt;cd Users/pengguna/Desktop&lt;/kbd&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Perintah selanjutnya adalah perintah utama yang di gunakan untuk membuat blog / Website yaitu &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll new &quot;nama Blog/ Website&quot;&lt;/code&gt; contoh &lt;kbd&gt;jekyll new &quot;mySite&quot;&lt;/kbd&gt; tunggu beberapa detik sampai muncul &lt;code class=&quot;highlighter-rouge&quot;&gt;New jekyll site installed in &amp;lt;direktori tujuan&amp;gt;&lt;/code&gt; untuk step ini blog atau website anda sudah jadi.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Thu, 28 Jul 2016 16:10:21 +0700</pubDate>
+        <link>https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/28/30-detik-membuat-website-atau-blog-dengan-jekyll-3/</link>
+        <guid isPermaLink="true">https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/28/30-detik-membuat-website-atau-blog-dengan-jekyll-3/</guid>
+        
+        
+        <category>jekyll-tips</category>
+        
+        <category>tutorial</category>
+        
+      </item>
+    
+      <item>
+        <title>Pencarian Auto Compleat Di Jekyll Dengan Bootstrap 4</title>
+        <description>&lt;p class=&quot;lead&quot;&gt;Dengan adanya Jekyll Search Auto Complete ini dapat digunakan untuk mempermudah user dalam pencarian post atau page di website dan blog kita.&lt;/p&gt;
+
+&lt;h2 id=&quot;table-of-contents&quot;&gt;Table Of Contents&lt;/h2&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#table-of-contents&quot; id=&quot;markdown-toc-table-of-contents&quot;&gt;Table Of Contents&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#contoh&quot; id=&quot;markdown-toc-contoh&quot;&gt;Contoh&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bahan&quot; id=&quot;markdown-toc-bahan&quot;&gt;Bahan&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cara-membuat&quot; id=&quot;markdown-toc-cara-membuat&quot;&gt;Cara Membuat&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#button-dropdown&quot; id=&quot;markdown-toc-button-dropdown&quot;&gt;Button Dropdown&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#input&quot; id=&quot;markdown-toc-input&quot;&gt;Input&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#custom-css&quot; id=&quot;markdown-toc-custom-css&quot;&gt;Custom css&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#searchjson&quot; id=&quot;markdown-toc-searchjson&quot;&gt;search.json&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#javascript&quot; id=&quot;markdown-toc-javascript&quot;&gt;javascript&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;contoh&quot;&gt;Contoh&lt;/h2&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+  #hasil{
+    width: 100%;
+  }
+  #hasil.dropdown-menu{
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 5px 10px rgba(0, 0, 0, 0.05);
+    padding: unset;
+    border: unset;
+  }
+&lt;/style&gt;
+
+&lt;div class=&quot;col-md-8&quot;&gt;
+  &lt;div class=&quot;dropdown&quot;&gt;
+    &lt;input type=&quot;text&quot; id=&quot;input&quot; class=&quot;form-control dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; placeholder=&quot;Search...&quot; /&gt;
+    &lt;div id=&quot;hasil&quot; class=&quot;dropdown-menu&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;bahan&quot;&gt;Bahan&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Bootstrap.min.css&lt;/li&gt;
+  &lt;li&gt;Bootstrap.min.js&lt;/li&gt;
+  &lt;li&gt;Jquery-2.2.2.min.js&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;/source/jekyll-search.min.js&quot;&gt;Jekyll-search.min.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;cara-membuat&quot;&gt;Cara Membuat&lt;/h2&gt;
+
+&lt;p&gt;Hal pertama yang harus di lakukan yaitu memanggil semua source:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;bootstrap.min.css diletakan di dalam &lt;code class=&quot;highlighter-rouge&quot;&gt;head&lt;/code&gt;,&lt;/li&gt;
+  &lt;li&gt;jquery-2.2.2.min.js, bootstrap.min.js, dan jekyll-search.min.js di letakan sebelum penutup tag &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;/body&amp;gt;&lt;/code&gt; secara urut.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;button-dropdown&quot;&gt;Button Dropdown&lt;/h4&gt;
+
+&lt;p&gt;Buat input dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;type=&quot;text&quot;&lt;/code&gt; yang di adaptasi dari &lt;strong&gt;Bootstrap&lt;/strong&gt; button dropdown seperti di bawah ini:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;dropdown&quot;&gt;&lt;button class=&quot;btn btn-secondary dropdown-toggle&quot; type=&quot;button&quot; id=&quot;dropdownMenu2&quot; data-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot;&gt;Button Dropdown&lt;/button&gt;&lt;div class=&quot;dropdown-menu&quot; aria-labelledby=&quot;dropdownMenu2&quot;&gt;&lt;button class=&quot;dropdown-item&quot; type=&quot;button&quot;&gt;Hasil Pencarian&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dropdown&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Button 1 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-secondary dropdown-toggle&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dropdownMenu2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-toggle=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dropdown&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-haspopup=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-expanded=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      Button Dropdown
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Button 2 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dropdown-menu&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;aria-labelledby=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dropdownMenu2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dropdown-item&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Hasil Pencarian&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;input&quot;&gt;Input&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Ganti &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;button&amp;gt;&lt;/code&gt;1 dengan &lt;code class=&quot;highlighter-rouge&quot;&gt;input&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;type=&quot;text&quot;&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;selanjutnya tambahkan class &lt;code class=&quot;highlighter-rouge&quot;&gt;form-control&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;dropdown-toggle&lt;/code&gt;,&lt;/li&gt;
+      &lt;li&gt;tambahkan atribut &lt;code class=&quot;highlighter-rouge&quot;&gt;data-toggle=&quot;dropdown&quot;&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;id=&quot;hasil&quot;&lt;/code&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Ganti &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;button&amp;gt;&lt;/code&gt;2 dengan tag &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;tambahkan &lt;code class=&quot;highlighter-rouge&quot;&gt;id=&quot;hasil&quot;&lt;/code&gt; dan &lt;code class=&quot;highlighter-rouge&quot;&gt;class=&quot;dropdown-menu&quot;&lt;/code&gt; seperti code di bawah ini:.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dropdown&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;input&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-control dropdown-toggle&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data-toggle=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dropdown&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;placeholder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Search...&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hasil&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dropdown-menu&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;custom-css&quot;&gt;Custom css&lt;/h4&gt;
+
+&lt;p&gt;Tambahkan sedikit css untuk menghilangkan tampilan yang kurang enak di lihat karena pengaruh &lt;code class=&quot;highlighter-rouge&quot;&gt;class=&quot;dropdown-menu&quot;&lt;/code&gt; di bagian bawah &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;input&amp;gt;&lt;/code&gt;. Untuk mengetahui perubahan tampilan yang terjadi, lihatlah perbedaan tampilan sebelum css di tambahkan dan perbedaan setelah css di tambahkan.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;#hasil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;#hasil&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.dropdown-menu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;searchjson&quot;&gt;search.json&lt;/h4&gt;
+
+&lt;p&gt;Buatlah file bernama &lt;kbd&gt;search.json&lt;/kbd&gt; atau dengan nama sesuai keinginan anda, untuk di generate oleh &lt;strong&gt;Jekyll&lt;/strong&gt;, yang akan meloop seluruh post / page yang ada. Hasil generate file inilah yang akan di tampilkan di bagian &lt;code class=&quot;highlighter-rouge&quot;&gt;id=&quot;hasil&quot;&lt;/code&gt; ketika user menginputkan value jika ada yang sesuai dengan hasil generate.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Letakan file ini di direktori &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;source&amp;gt;/search.json&lt;/code&gt; atau di direktori kesukaan anda.&lt;/li&gt;
+  &lt;li&gt;File ini hanya akan megenerate title dan url dari nama post/page.&lt;/li&gt;
+  &lt;li&gt;perlu di ingat tambahkan triple dash &lt;code class=&quot;highlighter-rouge&quot;&gt;---&lt;/code&gt; di bagian paling atas file supaya &lt;strong&gt;Jekyll&lt;/strong&gt; megenerate file &lt;kbd&gt;search.json&lt;/kbd&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;---&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;---&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;assign&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;sorted_posts&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;site.posts&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;sort:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;title&#39;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;sorted_posts&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;post.title&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;post.title&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;jsonify&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ site.baseurl }}{{ page.url }}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;unless&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;forloop.last&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endunless&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endif&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;endfor&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;javascript&quot;&gt;javascript&lt;/h4&gt;
+
+&lt;p&gt;Letakan code di bawah ini sebelum tag &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;body&amp;gt;&lt;/code&gt;. Code ini berfungsi untuk memanggil data dari search.json, untuk di tampilkan di dalam tag yang memiliki &lt;code class=&quot;highlighter-rouge&quot;&gt;id=&quot;hasil&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nx&quot;&gt;SimpleJekyllSearch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;searchInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;input&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;resultsContainer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;hasil&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;searchResultTemplate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&amp;lt;a class=&quot;dropdown-item&quot; href=&quot;{url}&quot;&amp;gt;{title}&amp;lt;/a&amp;gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;noResultsText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&amp;lt;div class=&quot;dropdown-item no-results&quot;&amp;gt;Maaf, tidak ada hasil yang sesuai dengan kata kunci.&amp;lt;/div&amp;gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;{{ site.baseurl }}/search.json&#39;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 26 Jul 2016 23:47:33 +0700</pubDate>
+        <link>https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/26/pencarian-auto-compleat-di-jekyll-dengan-bootstrap-4/</link>
+        <guid isPermaLink="true">https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/26/pencarian-auto-compleat-di-jekyll-dengan-bootstrap-4/</guid>
+        
+        
+        <category>jekyll-tips</category>
+        
+        <category>tutorial</category>
+        
+      </item>
+    
+      <item>
+        <title>Hello World</title>
+        <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+
+&lt;h2 id=&quot;typography&quot;&gt;Typography&lt;/h2&gt;
+
+&lt;h1 id=&quot;hello-world-span-classtag-tag-default-tag-pillh1span&quot;&gt;Hello World &lt;span class=&quot;tag tag-default tag-pill&quot;&gt;H1&lt;/span&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;helloworld-span-classtag-tag-default-tag-pillh2span&quot;&gt;Hello	World &lt;span class=&quot;tag tag-default tag-pill&quot;&gt;H2&lt;/span&gt;&lt;/h2&gt;
+
+&lt;h3 id=&quot;helloworld-span-classtag-tag-default-tag-pillh3span&quot;&gt;Hello	World &lt;span class=&quot;tag tag-default tag-pill&quot;&gt;H3&lt;/span&gt;&lt;/h3&gt;
+
+&lt;h4 id=&quot;helloworld-span-classtag-tag-default-tag-pillh4span&quot;&gt;Hello	World &lt;span class=&quot;tag tag-default tag-pill&quot;&gt;H4&lt;/span&gt;&lt;/h4&gt;
+
+&lt;h5 id=&quot;helloworld-span-classtag-tag-default-tag-pillh5span&quot;&gt;Hello	World &lt;span class=&quot;tag tag-default tag-pill&quot;&gt;H5&lt;/span&gt;&lt;/h5&gt;
+
+&lt;h6 id=&quot;helloworld-span-classtag-tag-default-tag-pillh6span&quot;&gt;Hello	World &lt;span class=&quot;tag tag-default tag-pill&quot;&gt;H6&lt;/span&gt;&lt;/h6&gt;
+
+&lt;p&gt;Hello	World &lt;span class=&quot;tag tag-default tag-pill&quot;&gt;p&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;blockquote&quot;&gt;blockquote&lt;/h2&gt;
+&lt;blockquote class=&quot;blockquote&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua.&lt;footer class=&quot;blockquote-footer&quot;&gt;John Doe&lt;/footer&gt;&lt;/blockquote&gt;
+&lt;blockquote class=&quot;blockquote blockquote-reverse&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua.&lt;footer class=&quot;blockquote-footer&quot;&gt;John Doe&lt;/footer&gt;&lt;/blockquote&gt;
+</description>
+        <pubDate>Tue, 26 Jul 2016 13:40:30 +0700</pubDate>
+        <link>https://ikhwanudin.github.io/2016/07/26/hello-world/</link>
+        <guid isPermaLink="true">https://ikhwanudin.github.io/2016/07/26/hello-world/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 25 Jul 2016 22:51:33 +0700</pubDate>
+        <link>https://ikhwanudin.github.io/jekyll/update/2016/07/25/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">https://ikhwanudin.github.io/jekyll/update/2016/07/25/welcome-to-jekyll/</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>

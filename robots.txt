@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://ikhwanudin.github.io/sitemap.xml 

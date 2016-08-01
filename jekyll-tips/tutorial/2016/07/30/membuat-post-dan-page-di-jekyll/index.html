@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Membuat Post dan Page di Jekyll</title>
+  <meta name="description" content="kali ini saya akan mengeshare sedikit tips cara membuat post dan page di jekyll dengan sangat mudah dari cara biasa hingga luar biasa.">
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css">
+  <link rel="canonical" href="https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/30/membuat-post-dan-page-di-jekyll/">
+	<link rel="alternate" type="application/rss+xml" title="Ikhwanudin" href="https://ikhwanudin.github.io/feed.xml">
+</head>
+  <body>      
+    <div id="navbar" class="col-md-12 col-lg-3 bg-inverse pos-f-t">
+      
+
+<div class="container" style="text-align:center; padding-top:20px;">
+	<img class="avatar img-circle img-fluid m-x-auto d-block" src="/assets/images/about.jpg" alt="avatar">
+	<a class="text-success" href="/"><h3>Ikhwanudin</h3></a>
+	<span class="text-muted">"Sesuatu yang besar berawal dari langkah kecil yang dilakukan, bukan hanya di pikirkan."</span> <br>
+	<div  style="margin-top:15px;" class="btn-group" role="group" aria-label="Basic example">
+	  <a href="/about" type="button" class="btn btn-outline-success">About</a>
+	  <a href="/" type="button" class="btn btn-outline-success">Blog</a>
+	  <a href="/archive" type="button" class="btn btn-outline-success">Archives</a>
+	</div>
+</div>
+      
+    </div>
+    <div id="content" class="col-md-12 col-lg-9 push-lg-3">
+      <div class="content">
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Membuat Post dan Page di Jekyll</h1>
+    <p class="post-meta"><i class="fa fa-calendar">&nbsp</i><time datetime="2016-07-30T17:28:34+07:00" itemprop="datePublished">Jul 30, 2016</time> • <a class="disqus-comments-link" title="View comments" href="https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/30/membuat-post-dan-page-di-jekyll/#disqus_thread">Comments</a></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p class="lead">kali ini saya akan mengeshare sedikit tips cara membuat post dan page di jekyll dengan sangat mudah dari cara biasa hingga luar biasa.</p>
+
+<h2 id="table-of-contents">Table Of Contents</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#table-of-contents" id="markdown-toc-table-of-contents">Table Of Contents</a></li>
+  <li><a href="#struktur-folder" id="markdown-toc-struktur-folder">Struktur Folder</a></li>
+  <li><a href="#cara-biasa--default" id="markdown-toc-cara-biasa--default">Cara Biasa / default</a>    <ul>
+      <li><a href="#membuat-post" id="markdown-toc-membuat-post">Membuat Post</a></li>
+      <li><a href="#membuat-page" id="markdown-toc-membuat-page">Membuat Page</a></li>
+    </ul>
+  </li>
+  <li><a href="#cara-cepat-dan-mudah" id="markdown-toc-cara-cepat-dan-mudah">Cara Cepat dan Mudah</a>    <ul>
+      <li><a href="#instalasi-octopress" id="markdown-toc-instalasi-octopress">Instalasi Octopress</a>        <ul>
+          <li><a href="#cara-yang-di-rekomendasikan-oleh-para-ahli" id="markdown-toc-cara-yang-di-rekomendasikan-oleh-para-ahli">Cara yang di rekomendasikan oleh para ahli.</a></li>
+          <li><a href="#cara-ke-2" id="markdown-toc-cara-ke-2">cara ke 2</a></li>
+        </ul>
+      </li>
+      <li><a href="#membuat-post-1" id="markdown-toc-membuat-post-1">Membuat Post</a></li>
+      <li><a href="#membuat-page-1" id="markdown-toc-membuat-page-1">Membuat Page</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="struktur-folder">Struktur Folder</h2>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>&lt;<span class="nb">source</span>&gt;
+ ├─── _includes
+ ├─── _layouts
+ |    ├── post.html
+ |    └── page.html
+ ├─── _post
+ |    └── 2016-07-30-nama-post.markdown
+ ├─── _sass
+ ├─── _site
+ ├─── _templates
+ ├─── about
+ |    └── index.html 
+ ├─── _config.yml
+ ├─── about.html
+ └─── index.html
+
+</code></pre>
+</div>
+
+<h2 id="cara-biasa--default">Cara Biasa / default</h2>
+
+<p>Cara ini di lakukan tanpa tambahan plugin apapun hanya menggunakan cara yang di berikan oleh si pembuat jekyll.</p>
+
+<h3 id="membuat-post">Membuat Post</h3>
+
+<ol>
+  <li>Untuk membuat post masuklah ke direktori (folder) <code class="highlighter-rouge">_post</code>, direktori di mana <strong>post</strong> di lahirkan. Kita hanya bisa membuat post di dalam folder ini, <em>kecuali di rubah setinganya di _config.yml</em>.</li>
+  <li>selanjutnya buatlah file dengan format nama: <code class="highlighter-rouge">[tahun]-[bulan]-[tanggal]-[nama-post].[ekstensi]</code> . eg: <code class="highlighter-rouge">2016-07-30-nama-post.markdown</code> nama-post harus <em>lowercase</em> atau huruf kecil semua, jenis file untuk post yang bisa di gunakan <em>markdown, html, textile</em>.</li>
+  <li>open file di text editor kesukaan anda. tambahkan yaml front mater di bagian paling atas. Untuk format date / tanggal <code class="highlighter-rouge">tahun-bulan-tanggalTJam:menit:detik+(zona waktu ex: gmt+07 / +07:00 untuk Jakarta Indonesia)</code>.</li>
+  <li>Isi post anda di letakan setelah front mater menggunakan markdown / html / textile.</li>
+</ol>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="nn">---</span>
+<span class="s">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Nama</span><span class="nv"> </span><span class="s">Post"</span>
+<span class="s">date</span><span class="pi">:</span> <span class="s">2016-07-30T17:28:34+07:00</span>
+<span class="nn">---</span>
+
+Isi post di sini
+
+</code></pre>
+</div>
+
+<h3 id="membuat-page">Membuat Page</h3>
+
+<ol>
+  <li>Ada dua jenis page yang bisa di gunakan, semisal di sini saya akan membuat page about:
+    <ul>
+      <li><strong>jenis pertama</strong> <code class="highlighter-rouge">&lt;source&gt;/about.html</code>
+        <ul>
+          <li>cara mengakses secara offline  <code class="highlighter-rouge">127.0.0.1:4000/about.html</code></li>
+        </ul>
+      </li>
+      <li><strong>jenis yang kedua</strong> <code class="highlighter-rouge">&lt;source&gt;/about/index.html</code>
+        <ul>
+          <li>cara mengakses secara offline <code class="highlighter-rouge">127.0.0.1:4000/about/index.html</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Untuk membuat page <strong>jenis pertama</strong> yaitu buat file di <code class="highlighter-rouge">&lt;source&gt;</code> direktori, dengan nama about.html / about.md, page ini bisa di akses secara default di <code class="highlighter-rouge">127.0.0.1:4000/about.html</code></li>
+</ol>
+
+<blockquote class="blockquote">Namun semisal kita ingin mengganti page jenis pertama ini menjadi jenis yang kedua tinggal menambahkan permalink di front mater: <code>permalink: /about/</code> </blockquote>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="nn">---</span>
+<span class="s">layout</span><span class="pi">:</span> <span class="s">page</span>
+<span class="s">title</span><span class="pi">:</span> <span class="s">About</span>
+<span class="s">permalink</span><span class="pi">:</span> <span class="s">/about/</span> <span class="c1">#tambahkan jika ingin mengganti page menjadi jenis ke 2</span>
+<span class="nn">---</span>
+
+isi page
+
+</code></pre>
+</div>
+<ol>
+  <li>Membuat page <strong>jenis ke dua</strong>
+    <ul>
+      <li>Cara mengakses page secara default <code class="highlighter-rouge">127.0.0.1:4000/about/index.html</code></li>
+      <li>Buatlah folder terlebih dahulu dengan nama sesuai page yang ingin di buat di dalam <a href="#struktur-folder">direktori <source /> </a>,</li>
+      <li>Selanjutnya buat file dengan nama <code class="highlighter-rouge">index.html</code> / <code class="highlighter-rouge">index.md</code>.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="nn">---</span>
+<span class="s">layout</span><span class="pi">:</span> <span class="s">page</span>
+<span class="s">title</span><span class="pi">:</span> <span class="s">About</span>
+<span class="nn">---</span>
+
+Isi page
+
+</code></pre>
+</div>
+
+<h2 id="cara-cepat-dan-mudah">Cara Cepat dan Mudah</h2>
+<p>Cara ini sangatlah mudah karena menggunakan plugin <a href="https://github.com/octopress/octopress">octopress</a>, sehingga menghemat waktu tenaga dan pikiran. Cara ini bisa di gunakan oleh Windows users.</p>
+
+<h3 id="instalasi-octopress">Instalasi Octopress</h3>
+
+<h4 id="cara-yang-di-rekomendasikan-oleh-para-ahli">Cara yang di rekomendasikan oleh para ahli.</h4>
+
+<ol>
+  <li>Buka terminal atau cmd.</li>
+  <li>Masuk ke direktori tujuan (letak blog/website) eg: <code class="highlighter-rouge">$:~/Desktop/mySite/</code>.</li>
+  <li>Ketikan perintah <code class="highlighter-rouge">bundle init</code> ~&gt; enter, perintah ini akan menghasilkan <code class="highlighter-rouge">Gemfile</code></li>
+  <li>Tambahkan <code class="highlighter-rouge">gem 'octopress'</code> seperti di bawah ini di dalam Gemfile.</li>
+  <li>ketikan <code class="highlighter-rouge">bundle install</code> -&gt; enter.</li>
+</ol>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">group</span> <span class="ss">:jekyll_plugins</span> <span class="k">do</span>
+ <span class="n">gem</span> <span class="s1">'octopress'</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<h4 id="cara-ke-2">cara ke 2</h4>
+
+<ol>
+  <li>Buka terminal atau cmd.</li>
+  <li>Ketikan perintah <code class="highlighter-rouge">gem install octopress</code> untuk menginstal.</li>
+  <li>Hanya menunggu beberapa detik octopress sudah berhasil di install, yeah.</li>
+</ol>
+
+<h3 id="membuat-post-1">Membuat Post</h3>
+
+<ol>
+  <li>Buka terminal dengan <kbd>ctrl + alt + t</kbd>(atau cara lainya), atau cmd untuk Windows users dengan <kbd>win + r</kbd> ketikan cmd -&gt; enter (atau dengan cara lainya).</li>
+  <li>Masuk ke direktori tujuan (letak blog/website) eg: <code class="highlighter-rouge">$:~/Desktop/mySite/</code>.</li>
+  <li>ketikan perintah <code class="highlighter-rouge">octopress new post "Nama Post"</code>, dengan perintah tersebut post sudah berhasil di buat di folder <code class="highlighter-rouge">_post</code></li>
+</ol>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="nn">---</span>
+<span class="s">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Nama</span><span class="nv"> </span><span class="s">Post"</span>
+<span class="s">date</span><span class="pi">:</span> <span class="s">2016-07-30T17:28:34+07:00</span>
+<span class="nn">---</span>
+
+Isi post di sini
+</code></pre>
+</div>
+
+<h3 id="membuat-page-1">Membuat Page</h3>
+
+<ol>
+  <li>Buka terminal dengan <kbd>ctrl + alt + t</kbd>(atau cara lainya), atau cmd untuk Windows users dengan <kbd>win + r</kbd> ketikan cmd -&gt; enter (atau dengan cara lainya).</li>
+  <li>Masuk ke direktori tujuan (letak blog/website) eg: <code class="highlighter-rouge">$:~/Desktop/mySite/</code>.</li>
+  <li>Membuat page
+    <ul>
+      <li><strong>Page jenis 1</strong> Ketikan perintah <code class="highlighter-rouge">octopress new page "Nama-page"</code> ~&gt; enter. eg: <code class="highlighter-rouge">octopress new page "About"</code>. Dengan perintah ini akan menghasilkan file about.html, cara mengaksesnya <code class="highlighter-rouge">127.0.0.1:4000/about.html</code>.</li>
+      <li><strong>Page jenis 2</strong> Ketikan perintah <code class="highlighter-rouge">octopress new page "Nama-page/index.html"</code> (index.md) ~&gt; enter. eg: <code class="highlighter-rouge">octopress new page "About/index.html"</code>. Dengan perintah ini akan menghasilkan file about.html, cara mengaksesnya <code class="highlighter-rouge">127.0.0.1:4000/about/index.html</code>.</li>
+    </ul>
+  </li>
+  <li>Untuk mengganti page jenis 1 menjadi jenis ke 2 tambahkan permalink di front mater <code class="highlighter-rouge">permalink: /about/</code>, dan cara mengaksesnya secara default yaitu <code class="highlighter-rouge">127.0.0.1:4000/about/index.html</code></li>
+</ol>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="nn">---</span>
+<span class="s">layout</span><span class="pi">:</span> <span class="s">page</span>
+<span class="s">title</span><span class="pi">:</span> <span class="s">About</span>
+<span class="nn">---</span>
+
+Isi page
+
+</code></pre>
+</div>
+
+  </div>
+  <div><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/30/membuat-post-dan-page-di-jekyll/" data-text="Membuat Post dan Page di Jekyll by @ikhwanudin0_0 -" data-dnt="true">Twitter</a> - <div class="fb-like" data-href="https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/30/membuat-post-dan-page-di-jekyll/" data-layout="button" data-action="like" data-show-faces="false" data-colorscheme="light" data-kid-directed-site="false" data-share="false"></div> - <div class="g-plus" data-action="share" data-href="https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/30/membuat-post-dan-page-di-jekyll/" data-annotation="none" data-width="" data-size="medium"></div></div>
+  
+  
+  	<span class="categories"><i class="fa fa-tags">&nbsp</i>posted in jekyll-tips, tutorial</span>
+  
+
+</article>
+<div id="bottom-nav" class="row">
+  
+  <div class="col-xs-6 col-md-6">
+    <a href="/jekyll-tips/tutorial/2016/07/28/30-detik-membuat-website-atau-blog-dengan-jekyll-3/" class="btn btn-success" data-toggle="tooltip" data-placement="right" title="30 Detik Membuat Website Atau Blog Dengan Jekyll 3"><i class="fa fa-chevron-left">&nbsp</i>Previous</a>
+  </div>
+  
+  
+</div>
+<div id="disqus_thread"></div> <script type="text/javascript"> var disqus_shortname = 'nurikhwanudin'; var disqus_url = 'https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/30/membuat-post-dan-page-di-jekyll/'; var disqus_identifier = 'https://ikhwanudin.github.io/jekyll-tips/tutorial/2016/07/30/membuat-post-dan-page-di-jekyll/'; var disqus_title = 'Membuat Post dan Page di Jekyll'; (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//nurikhwanudin.disqus.com/embed.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript></div>
+      <div class="footer"><footer>
+	<div class="row">
+		<div class="col-md-6">
+			Ikhwanudin
+			<p class="text-muted">Sesuatu yang besar berawal dari langkah kecil yang dilakukan, bukan hanya di pikirkan.</p>	
+		</div>
+		<div class="col-md-6">
+			<span class="text-muted pull-md-right">Copyright 2016</span>
+		</div>
+	</div>
+</footer></div>
+    </div>
+  <script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/tether.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+  
+  
+    <script type="text/javascript">
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <div id="fb-root"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>
+    <script type="text/javascript"> (function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/platform.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })(); </script>    
+  
+  </body>
+</html>
