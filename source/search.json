@@ -10,13 +10,6 @@
 
     
         {
-            "title" : "Hello World",
-            "url"   : "/2016/07/26/hello-world/"
-        } ,
-    
-
-    
-        {
             "title" : "Membuat Post dan Page di Jekyll",
             "url"   : "/jekyll-tips/tutorial/2016/07/30/membuat-post-dan-page-di-jekyll/"
         } ,
@@ -26,13 +19,6 @@
         {
             "title" : "Pencarian Auto Compleat Di Jekyll Dengan Bootstrap 4",
             "url"   : "/jekyll-tips/tutorial/2016/07/26/pencarian-auto-compleat-di-jekyll-dengan-bootstrap-4/"
-        } ,
-    
-
-    
-        {
-            "title" : "Welcome to Jekyll!",
-            "url"   : "/jekyll/update/2016/07/25/welcome-to-jekyll/"
         } 
     
 
